@@ -6,3 +6,7 @@ pandas
 tqdm
 python-dotenv
 openai
+streamlit
+fastapi
+uvicorn
+pydantic
