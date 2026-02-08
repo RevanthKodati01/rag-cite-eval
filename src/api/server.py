@@ -59,4 +59,17 @@ def upload(file: UploadFile = File(...)):
 @app.get("/files")
 def list_files():
     os.makedirs("data/raw", exist_ok=True)
-    return {"files": sorted(os.listdir("data/raw"))}
+
+    files = []
+    for name in os.listdir("data/raw"):
+        # hide dotfiles like .gitkeep, .DS_Store
+        if name.startswith("."):
+            continue
+
+        path = os.path.join("data/raw", name)
+        # only include real files
+        if os.path.isfile(path):
+            files.append(name)
+
+    return {"files": sorted(files)}
+
