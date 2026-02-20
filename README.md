@@ -108,8 +108,14 @@ pip install -r requirements.txt
 ```
 
 ### 2) Start the local LLM (Ollama)
-Pull the model used by the code:
 
+First, start the Ollama server engine (it is recommended to run this in a separate terminal tab):
+
+```bash
+ollama serve
+```
+
+Pull the model used by the code:
 ```bash
 ollama pull llama3.2:3b
 ```
